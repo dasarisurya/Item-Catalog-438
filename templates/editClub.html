@@ -1,0 +1,24 @@
+
+
+<html>
+   <head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+   </head>
+   <body>
+      <center>
+         <h1 id = "hea"> Edit Club </h1>
+      </center>
+      <br>
+      <form action="{{ url_for('editClub',club_id = club.id)}}" method = 'post'>
+         <p>Name:</p>
+         <input type ='text' size='30' name='name' placeholder = '{{club.name }}'>
+         <br><br>
+         <input type='submit' value='Edit'>
+         <br><br>
+         <a href = '{{url_for('viewClubs')}}'> Cancel </a>
+      </form>
+   </body>
+</html>
+
+

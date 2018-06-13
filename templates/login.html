@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<html>
+   <head>
+      <!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+      <script src="//apis.google.com/js/platform.js?onload=start"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <div class="row top-menu">
+         <div class="col-md-10"></div>
+         <div class="col-md-2 text-right">
+         </div>
+      </div>
+      <div class="row divider blue">
+         <div class="col-md-12"></div>
+      </div>
+      <div class="row banner main">
+         <div class="col-md-4"></div>
+         <div class="col-md-17 padding-none">
+            <center>
+               <h1 id = "hea">European Football Clubs</h1>
+            </center>
+         </div>
+      </div>
+      <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
+   </head>
+   <body>
+      <!-- GOOGLE PLUS SIGN IN BUTTON-->
+      <br>
+      <br>
+      <br>
+      <center>
+      <div id="signInButton">
+         <span class="g-signin"
+            data-scope="openid email"
+            data-clientid="249426575176-gf387edupnrnbdevta2v210eusdrduts.apps.googleusercontent.com"
+            data-redirecturi="postmessage"
+            data-accesstype="offline"
+            data-cookiepolicy="single_host_origin"
+            data-callback="signInCallback"
+            data-approvalprompt="force">
+         </span>
+      </div>
+      <center>
+      <div id="result"></div>
+      <script>
+         function signInCallback(authResult) {
+           if (authResult['code']) {
+             // Hide the sign-in button now that the user is authorized
+             $('#signinButton').attr('style', 'display: none');
+             // Send the one-time-use code to the server, if the server responds, write a 'login successful' message to the web page and then redirect back to the main restaurants page
+             $.ajax({
+               type: 'POST',
+               url: '/gconnect?state={{STATE}}',
+               processData: false,
+               data: authResult['code'],
+               contentType: 'application/octet-stream; charset=utf-8',
+               success: function(result) {
+                 // Handle or verify the server response if necessary.
+                 if (result) {
+                   $('#result').html('Login Successful!</br>'+ result + '</br>Redirecting...')
+                  setTimeout(function() {
+                   window.location.href = "/club";
+                  }, 4000);
+               } else if (authResult['error']) {
+             console.log('There was an error: ' + authResult['error']);
+           } else {
+                 $('#result').html('Failed to make a server-side call. Check your configuration and console.');
+                  }
+               }
+           }); } }
+           
+      </script>
+      <!--- End GOOGLE SIGN IN --->
+   </body>
+</html>
+{% endblock %}
+
+

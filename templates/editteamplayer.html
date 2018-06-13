@@ -1,0 +1,50 @@
+
+
+<html>
+   <head>
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+      <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+   </head>
+   <body>
+      <center>
+         <h1 id = "hea"> Edit Team Player </h1>
+      </center>
+      <br>
+      <form action="#" method = 'post' id = "sty">
+         <p>Name:</p>
+         <input type ='text' size='30' name='name' placeholder = '{{player.name }}'>
+         <p>Description:</p>
+         <input type ='text' size='30' name='description' placeholder = '{{player.description}}'>
+         <p>Price:</p>
+         <input type ='text' size='30' name='price' placeholder = '{{player.price}}'>
+         <p>Course:
+         <p>
+            {% if player.course == 'Striker' %}
+         <dd><input type ='radio' name='course' value='Striker'checked >Striker</dd>
+         {%else%}
+         <dd><input type ='radio' name='course' value='Striker' >Striker</dd>
+         {% endif %}
+         {% if player.course == 'MidFielder' %}
+         <dd><input type ='radio' name='course' value='MidFielder' checked>MidFielder</dd>
+         {%else%}
+         <dd><input type ='radio' name='course' value='MidFielder'>MidFielder</dd>
+         {% endif %}
+         {% if player.course == 'Defender'%}
+         <dd><input type ='radio' name='course' value='Defender'checked >Defender</dd>
+         {% else %}
+         <dd><input type ='radio' name='course' value='Defender'>Defender</dd>
+         {% endif %}
+         {%if player.course =='GoalKeeper'%}
+         <dd><input type ='radio' name='course' value='GoalKeeper'checked >GoalKeeper</dd>
+         {% else %}
+         <dd><input type ='radio' name='course' value='GoalKeeper'>GoalKeeper</dd>
+         {% endif %}
+         <br><br>
+         <input type='submit' value='Edit'>
+         <br><br>
+         <a href = '{{url_for('viewClubs')}}'> Cancel </a>
+      </form>
+   </body>
+</html>
+
+
