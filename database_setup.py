@@ -46,6 +46,7 @@ class TeamPlayer(Base):
     course = Column(String(250))
     club_id = Column(Integer, ForeignKey('club.id'))
     club = relationship(Club)
+    team_player = relationship('TeamPlayer', cascade='all, delete-orphan')
 
     @property
     def serialize(self):
