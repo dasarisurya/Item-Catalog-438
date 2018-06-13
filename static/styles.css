@@ -1,0 +1,102 @@
+body {
+     font-family: sans-serif;
+     background-color: #666666;
+     background-image: url("https://bit.ly/2sYY1Am")
+}
+ h1, h2, h3, h4 {
+     color: #ff3300;
+     font-family: 'Shadows Into Light', cursive;
+}
+ h1, h2 {
+     font-family: 'Georgia', serif;
+     margin: 0;
+     font-family: 'Shadows Into Light', cursive;
+}
+ h1 {
+     border-bottom: 3px solid #eee;
+     font-family: 'Shadows Into Light', cursive;
+}
+ #cent {
+     text-align:center;
+     padding-bottom:5px;
+     font-family: 'Jua', sans-serif;
+     font-size: 1.5em;
+}
+ #sty {
+     color: #ff3300;
+}
+ #podi {
+     font-size: 1.5em;
+}
+ #pad {
+     padding-right:950px;
+     color:#00cc44;
+}
+ #hea {
+     font-size: 3.2em;
+     color: #ff3300;
+     font-family: 'Shadows Into Light', cursive;
+}
+ #gre {
+     font-size: 1.2em;
+     color: color: #ff3300;
+     font-family: 'Shadows Into Light', cursive;
+}
+ h2 {
+     font-size: 1.5em;
+}
+ .bodi {
+     font-size: 1.5em;
+     border: 1px solid black;
+     margin-top: 5px;
+     margin-bottom: 2px;
+     padding-top:12.5px;
+     padding-bottom:12.5px;
+     background-color: #e6f9ff;
+     font-family: 'Jua', sans-serif;
+}
+ .bod {
+     font-size: 1.3em;
+     border: 1px solid black;
+     margin-top: 5px;
+     margin-bottom: 2px;
+     padding-top:12.5px;
+     padding-bottom:12.5px;
+     background-color: #e6f9ff;
+     font-family: 'Jua', sans-serif;
+}
+ p {
+     color: #e67300;
+}
+ a {
+    text-decoration: none;
+    color:#00cc44;
+    font-size: .99em;
+}
+ .header {
+    left:50%;
+    text-align: center;
+}
+ .name {
+    width:50%;
+    display: inline-block;
+}
+ .description {
+}
+ .price {
+    text-align: right;
+    width:50%;
+}
+ .editdeletepane{
+}
+ .flash {
+     background: #cee5F5;
+}
+ .log {
+     text-align: left;
+     color:#00cc44;
+}
+ .menu {
+     width:100%;
+}
+
