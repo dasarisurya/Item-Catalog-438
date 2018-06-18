@@ -352,7 +352,7 @@ def editClub(club_id):
             return redirect(url_for('viewClubs'))
     else:
         return render_template('editClub.html', club=editedClub)
-    if Club.user_id != login_session['user_id']:
+    if editedClub.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to edit.');}</script><body onload='myFunction()'>"
@@ -376,7 +376,7 @@ def deleteTeamPlayer(club_id, team_id):
     else:
         return render_template('deleteteamplayer.html',
                                player=playerToDelete)
-    if Club.user_id != login_session['user_id']:
+    if playerToDelete.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to delete.');}</script><body onload='myFunction()'>"
