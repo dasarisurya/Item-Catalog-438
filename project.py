@@ -337,28 +337,6 @@ def newClub():
 
     # return "This page will be for making a new club"
 
-# Edit a club
-# You can only edit if you are logged in
-
-
-@app.route('/club/<int:club_id>/edit/', methods=['GET', 'POST'])
-def editClub(club_id):
-    if 'username' not in login_session:
-        return redirect('/login')
-    editedClub = session.query(Club).filter_by(id=club_id).one()
-    if request.method == 'POST':
-        if request.form['name']:
-            editedClub.name = request.form['name']
-            return redirect(url_for('viewClubs'))
-    else:
-        return render_template('editClub.html', club=editedClub)
-    if editedClub.user_id != login_session['user_id']:
-        return "<script>function myFunction(){alert('You are not authorized to\
-        edit this touristplace. please create your own team player in order\
-        to edit.');}</script><body onload='myFunction()'>"
-
-    # return 'This page will be for editing club %s' % club_id
-
 # Page for Deleting a team player
 
 
@@ -376,7 +354,7 @@ def deleteTeamPlayer(club_id, team_id):
     else:
         return render_template('deleteteamplayer.html',
                                player=playerToDelete)
-    if playerToDelete.user_id != login_session['user_id']:
+    if Club.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to delete.');}</script><body onload='myFunction()'>"
