@@ -312,7 +312,7 @@ def editClub(club_id):
             return redirect(url_for('viewClubs'))
     else:
         return render_template('editClub.html', club=editedClub)
-    if Club.user_id != login_session['user_id']:
+    if editedClub.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to edit.');}</script><body onload='myFunction()'>"
@@ -354,7 +354,7 @@ def deleteTeamPlayer(club_id, team_id):
     else:
         return render_template('deleteteamplayer.html',
                                player=playerToDelete)
-    if Club.user_id != login_session['user_id']:
+    if playerToDelete.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to delete.');}</script><body onload='myFunction()'>"
@@ -376,7 +376,7 @@ def deleteClub(club_id):
         return redirect(url_for('viewClubs', club_id=club_id))
     else:
         return render_template('deleteClub.html', club=clubToDelete)
-    if Club.user_id != login_session['user_id']:
+    if clubToDelete.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to delete.');}</script><body onload='myFunction()'>"
@@ -424,7 +424,7 @@ def editTeamPlayer(club_id, team_id):
 
         return render_template('editteamplayer.html', club_id=club_id,
                                team_id=team_id, player=editedPlayer)
-    if Club.user_id != login_session['user_id']:
+    if editedPlayer.user_id != login_session['user_id']:
         return "<script>function myFunction(){alert('You are not authorized to\
         edit this touristplace. please create your own team player in order\
         to edit.');}</script><body onload='myFunction()'>"
